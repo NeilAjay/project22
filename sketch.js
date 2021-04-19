@@ -43,29 +43,33 @@ function setup() {
 function draw() {
   background(bgImg);
   
-  fairy.velocityX = 0
-  fairy.velocityY = 0;
+star.x = starBody.position.x;
+star.y = starBody.position.y;
 
+
+if (starBody.position.y > 470) {
+	Matter.Body.setStatic(starBody , true);
+}
   drawSprites();
 
 }
 
 function keyPressed() {
 	//write code here
-if(keyDown("LEFT_ARROW")){
+if(keyCode ===LEFT_ARROW){
   
-   fairy.velocityX = -10;
-   fairy.velocityY = 0;
+   fairy.x = fairy.x -10;
 
 }
-if(keyDown("RIGHT_ARROW")){
+if(keyCode === RIGHT_ARROW){
   
-   fairy.velocityX = 10; 
-   fairy.velocityY = 0;
+   fairy.x = fairy.x +10; 
 	
 }
 
-else if(keyDown("DOWN_ARROW")){
-	star.velocityY = star.velocityY + 1.5;
+else if(keyCode === DOWN_ARROW){
+	Matter.Body.setStatic(starBody, false);
 }
+
+
 }
